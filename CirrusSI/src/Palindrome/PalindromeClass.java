@@ -7,14 +7,9 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.StackPane;
 import javafx.stage.*;
 
-public class PalindromeClass extends Application implements EventHandler<ActionEvent>{
+public class PalindromeClass extends Application{
 
-	@Override
-	public void handle(ActionEvent event) {
-		if(event.getSource()==find){
-			System.out.println("Find clicked");
-		}
-	}
+	
 
 	Button find;
 	public static void main(String[] args) {
@@ -26,7 +21,14 @@ public class PalindromeClass extends Application implements EventHandler<ActionE
 		primaryStage.setTitle("Finding Higest Palindrome");
 		find =new Button();
 		find.setText("Find Palindrome");
-		find.setOnAction(this);
+		find.setOnAction(new EventHandler<ActionEvent>(){
+			@Override
+			public void handle(ActionEvent event) {
+				if(event.getSource()==find){
+					System.out.println("Find clicked");
+				}
+			}
+		});
 		StackPane layout=new StackPane();
 		layout.getChildren().add(find);
 		
