@@ -33,28 +33,37 @@ public class PalindromeClass extends Application{
 		find.setOnAction(e -> {
 			answer.setText("");
 			errorMessage.setText("");
-			long l=Long.parseLong(lower.getText());                    // enter number between -9,223,372,036,854,775,808 to 9,223,372,036,854,775,807
-			long h=Long.parseLong(higher.getText());
-			if(l==h || l>h){
-				errorMessage.setText("Enter a valid range");
-			}
-			String reverse="";
-			String toCompare="";
-			int flag=0;
-			while(h>=l){
-				toCompare=Long.toString(h);
-				reverse=new StringBuffer(toCompare).reverse().toString();
-				if(toCompare.equalsIgnoreCase(reverse)){
-					answer.setText(Long.toString(h));
-					flag=1;
-					break;
+			try{
+				long l=Long.parseLong(lower.getText());                    // enter number between -9,223,372,036,854,775,808 to 9,223,372,036,854,775,807
+				long h=Long.parseLong(higher.getText());
+				if(l==h || l>h){
+					errorMessage.setText("INVALID INPUT: Enter a valid range");
 				}
-				h--;
-				System.out.println(h);
+				else{
+					String reverse="";
+					String toCompare="";
+					int flag=0;
+					while(h>=l){
+						toCompare=Long.toString(h);
+						reverse=new StringBuffer(toCompare).reverse().toString();
+						if(toCompare.equalsIgnoreCase(reverse)){
+							answer.setText(Long.toString(h));
+							flag=1;
+							break;
+						}
+						h--;
+						System.out.println(h);
+						
+					}
+					if(flag==0){
+						errorMessage.setText("No Palindrom in the Range");
+					}
+				}
 				
 			}
-			if(flag==0){
-				errorMessage.setText("No Palindrom in the Range");
+			catch(NumberFormatException f){
+				errorMessage.setText("INPUT INVALID: Enter Number Range");
+				//System.out.println("String");
 			}
 		});
 		lower.setOnMouseClicked(e -> {
