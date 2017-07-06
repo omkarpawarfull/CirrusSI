@@ -12,8 +12,8 @@ import javafx.stage.*;
 public class PalindromeClass extends Application{
 
 	Button find,clear;
-	TextField lower,higher,answer;
-	Label label1,label2,label3,errorMessage;
+	TextField lower,higher;
+	Label label1,label2,label3,errorMessage,answer;
 	public static void main(String[] args) {
 		launch(args);
 	}
@@ -25,7 +25,7 @@ public class PalindromeClass extends Application{
 		clear=new Button("Clear");
 		lower=new TextField("Lower Bound");
 		higher=new TextField("Higher Bound");
-		answer=new TextField();
+		answer=new Label();
 		label1=new Label("Lower");
 		label2=new Label("Higher");
 		label3=new Label("Answer");
@@ -52,8 +52,6 @@ public class PalindromeClass extends Application{
 							break;
 						}
 						h--;
-						System.out.println(h);
-						
 					}
 					if(flag==0){
 						errorMessage.setText("No Palindrom in the Range");
@@ -63,7 +61,6 @@ public class PalindromeClass extends Application{
 			}
 			catch(NumberFormatException f){
 				errorMessage.setText("INPUT INVALID: Enter Number Range");
-				//System.out.println("String");
 			}
 		});
 		lower.setOnMouseClicked(e -> {
