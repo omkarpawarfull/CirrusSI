@@ -21,14 +21,14 @@ public class PalindromeClass extends Application{
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		primaryStage.setTitle("Finding Higest Palindrome");
-		find =new Button("Find Palindrome");
+		find =new Button("Search");
 		clear=new Button("Clear");
 		lower=new TextField("Lower Bound");
-		higher=new TextField("Higher Bound");
+		higher=new TextField("Upper Bound");
 		answer=new Label();
 		label1=new Label("Lower");
 		label2=new Label("Higher");
-		label3=new Label("Answer");
+		label3=new Label("Result");
 		errorMessage=new Label();
 		find.setOnAction(e -> {
 			answer.setText("");
