@@ -40,8 +40,8 @@ public class PalindromeClass extends Application{
 					errorMessage.setText("INVALID INPUT: Enter a valid range");
 				}
 				else{
-					String reverse="";
 					String toCompare="";
+					String reverse="";
 					int flag=0;
 					while(h>=l){
 						toCompare=Long.toString(h);
