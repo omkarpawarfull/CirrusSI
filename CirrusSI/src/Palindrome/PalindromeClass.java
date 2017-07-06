@@ -21,6 +21,7 @@ public class PalindromeClass extends Application{
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		primaryStage.setTitle("Finding Higest Palindrome");
+		
 		find =new Button("Search");
 		clear=new Button("Clear");
 		lower=new TextField("Lower Bound");
@@ -40,8 +41,8 @@ public class PalindromeClass extends Application{
 					errorMessage.setText("INVALID INPUT: Enter a valid range");
 				}
 				else{
-					String toCompare="";
 					String reverse="";
+					String toCompare="";
 					int flag=0;
 					while(h>=l){
 						toCompare=Long.toString(h);
