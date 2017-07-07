@@ -41,22 +41,44 @@ public class PalindromeClass extends Application{
 					errorMessage.setText("INVALID INPUT: Enter a valid range");
 				}
 				else{
-					String reverse="";
-					String toCompare="";
-					int flag=0;
-					while(h>=l){
-						toCompare=Long.toString(h);
-						reverse=new StringBuffer(toCompare).reverse().toString();
-						if(toCompare.equalsIgnoreCase(reverse)){
-							answer.setText(Long.toString(h));
-							flag=1;
-							break;
+					if(l<0&&h<0){
+						String reverse="";
+						String toCompare="";
+						int flag=0;
+						h=-1*h;
+						l=-1*l;
+						while(h<=l){
+							toCompare=Long.toString(h);
+							reverse=new StringBuffer(toCompare).reverse().toString();
+							if(toCompare.equalsIgnoreCase(reverse)){
+								answer.setText(Long.toString(-1*h));
+								flag=1;
+								break;
+							}
+							h++;
 						}
-						h--;
+						if(flag==0){
+							errorMessage.setText("No Palindrom in the Range");
+						}	
 					}
-					if(flag==0){
-						errorMessage.setText("No Palindrom in the Range");
-					}
+					else{
+						String reverse="";
+						String toCompare="";
+						int flag=0;
+						while(h>=l){
+							toCompare=Long.toString(h);
+							reverse=new StringBuffer(toCompare).reverse().toString();
+							if(toCompare.equalsIgnoreCase(reverse)){
+								answer.setText(Long.toString(h));
+								flag=1;
+								break;
+							}
+							h--;
+						}
+						if(flag==0){
+							errorMessage.setText("No Palindrom in the Range");
+						}
+					}		
 				}
 				
 			}
