@@ -10,10 +10,11 @@ import javafx.scene.layout.VBox;
 import javafx.stage.*;
 
 public class PalindromeClass extends Application{
-
+	//declaration of objects used in the GUI
 	Button find,clear;
 	TextField lower,higher;
 	Label label1,label2,label3,errorMessage,answer;
+	//
 	public static void main(String[] args) {
 		launch(args);
 	}
@@ -21,7 +22,6 @@ public class PalindromeClass extends Application{
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		primaryStage.setTitle("Finding Higest Palindrome");
-		
 		find =new Button("Search");
 		clear=new Button("Clear");
 		lower=new TextField("Lower Bound");
@@ -37,11 +37,11 @@ public class PalindromeClass extends Application{
 			try{
 				long l=Long.parseLong(lower.getText());                    // enter number between -9,223,372,036,854,775,808 to 9,223,372,036,854,775,807
 				long h=Long.parseLong(higher.getText());
-				if(l==h || l>h){
+				if(l==h || l>h){											//if the upper and lower are same OR upper is smaller than Lower
 					errorMessage.setText("INVALID INPUT: Enter a valid range");
 				}
 				else{
-					if(l<0&&h<0){
+					if(l<0&&h<0){											//if lower and higher are both negative
 						String reverse="";
 						String toCompare="";
 						int flag=0;
@@ -50,18 +50,18 @@ public class PalindromeClass extends Application{
 						while(h<=l){
 							toCompare=Long.toString(h);
 							reverse=new StringBuffer(toCompare).reverse().toString();
-							if(toCompare.equalsIgnoreCase(reverse)){
+							if(toCompare.equalsIgnoreCase(reverse)){  		//if reverse of the string and the string is the same
 								answer.setText(Long.toString(-1*h));
 								flag=1;
 								break;
 							}
 							h++;
 						}
-						if(flag==0){
+						if(flag==0){										//if no palindrome found
 							errorMessage.setText("No Palindrom in the Range");
 						}	
 					}
-					else{
+					else{													//if both input are correct
 						String reverse="";
 						String toCompare="";
 						int flag=0;
@@ -83,16 +83,16 @@ public class PalindromeClass extends Application{
 				
 			}
 			catch(NumberFormatException f){
-				errorMessage.setText("INPUT INVALID: Enter Number Range");
+				errorMessage.setText("INPUT INVALID: Enter Number Range");                  //when you enter a string
 			}
 		});
-		lower.setOnMouseClicked(e -> {
+		lower.setOnMouseClicked(e -> {										//to clear when you click
 			lower.setText("");
 		});
-		higher.setOnMouseClicked(e -> {
+		higher.setOnMouseClicked(e -> {										//to clear when you click
 			higher.setText("");
 		});
-		clear.setOnAction(e -> {
+		clear.setOnAction(e -> {											//to clear all the field when you click
 			lower.setText("");
 			higher.setText("");
 			answer.setText("");
